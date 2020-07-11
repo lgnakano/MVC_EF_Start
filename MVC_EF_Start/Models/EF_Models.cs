@@ -33,6 +33,25 @@ namespace MVC_EF_Start.Models
     public string symbol { get; set; }
   }
 
+  public class Course
+  {
+    public int Id { get; set; }
+    public string Name { get; set; }
+  }
+
+  public class Student
+  {
+    public int Id { get; set; }
+    public string Name { get; set; }
+  }
+
+  public class Enrolment
+  {
+    public int Id { get; set; }
+    public Course course { get; set; }
+    public Student student { get; set; }
+    public string grade { get; set; }
+  }
   public class ChartRoot
   {
     public Quote[] chart { get; set; }

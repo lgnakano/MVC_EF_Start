@@ -25,7 +25,7 @@ namespace MVC_EF_Start.Controllers
 
     public async Task<ViewResult> DatabaseOperations()
     {
-      // CREATE operation
+/*      // CREATE operation
       Company MyCompany = new Company();
       MyCompany.symbol = "MCOB";
       MyCompany.name = "ISM";
@@ -86,13 +86,44 @@ namespace MVC_EF_Start.Controllers
       CompanyRead1.iexId = "MCOB";
       dbContext.Companies.Update(CompanyRead1);
       //dbContext.SaveChanges();
-      await dbContext.SaveChangesAsync();
-      
-      // DELETE operation
-      //dbContext.Companies.Remove(CompanyRead1);
-      //await dbContext.SaveChangesAsync();
+      await dbContext.SaveChangesAsync();*/
 
-      return View();
+            // DELETE operation
+            //dbContext.Companies.Remove(CompanyRead1);
+            //await dbContext.SaveChangesAsync();
+
+            Student student1 = new Student();
+            student1.Name = "Bob";
+            dbContext.Students.Add(student1);
+
+            Student student2 = new Student();
+            student2.Name = "Alice";
+            dbContext.Students.Add(student2);
+
+            dbContext.SaveChanges();
+
+            Course course = new Course();
+            course.Name = "ISM6255";
+            dbContext.Courses.Add(course);
+
+            dbContext.SaveChanges();
+
+            Enrolment enrolment1 = new Enrolment();
+            enrolment1.course = course;
+            enrolment1.student = student1;
+            enrolment1.grade = "A";
+            dbContext.Enrolments.Add(enrolment1);
+
+            Enrolment enrolment2 = new Enrolment();
+            enrolment2.course = course;
+            enrolment2.student = student2;
+            enrolment2.grade = "A+";
+            dbContext.Enrolments.Add(enrolment2);
+
+            await dbContext.SaveChangesAsync();
+
+
+      return View(student1);
     }
 
     public ViewResult LINQOperations()

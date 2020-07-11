@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Student;
+
+@{
     Layout = null;
 }
 
@@ -11,5 +13,10 @@
 </head>
 <body>
   <h2>Database operations successful</h2>
+
+  <table>
+      <tr><th>Company name</th></tr>
+      <tr><td>[@Html.Raw(@Model.Name)]</td></tr>
+  </table>
 </body>
 </html>
