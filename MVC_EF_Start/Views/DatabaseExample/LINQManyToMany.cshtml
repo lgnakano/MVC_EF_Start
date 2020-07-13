@@ -1,0 +1,20 @@
+﻿@model StudentCourseEnrolment;
+
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQManyToMany</title>
+</head>
+<body>
+    <h2>LINQ Many to Many successful</h2>
+    <h3>Student: @Model.student.Name Id: @Model.student.Id</h3>
+    <h3>Course: @Model.course.Name CourseId: @Model.course.Id</h3>
+    <h3>Enrolment Id: @Model.enrolment.Id Grade: @Model.enrolment.grade</h3>
+</body>
+</html>

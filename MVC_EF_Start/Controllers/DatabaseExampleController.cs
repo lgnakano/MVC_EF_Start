@@ -148,5 +148,24 @@ namespace MVC_EF_Start.Controllers
       return View(retVal);
     }
 
+    public ViewResult LINQManyToMany()
+    {
+            Student student = dbContext.Students
+                                .Where(c => c.Name == "Bob")
+                                .First();
+            Enrolment enrolment = dbContext.Enrolments
+                                .Include(e => e.course)
+                                .Where(e => e.student == student)
+                                .First();
+            Course course = dbContext.Courses
+                            .Where(c => c.Id == enrolment.course.Id)
+                            .First();
+            StudentCourseEnrolment sce = new StudentCourseEnrolment();
+            sce.course = course;
+            sce.student = student;
+            sce.enrolment = enrolment;
+       return View(sce);
+    }
+
   }
 }
