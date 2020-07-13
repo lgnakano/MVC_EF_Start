@@ -128,23 +128,24 @@ namespace MVC_EF_Start.Controllers
 
     public ViewResult LINQOperations()
     {
+            ReturnValueLINQOperations retVal = new ReturnValueLINQOperations();
       Company CompanyRead1 = dbContext.Companies
                                       .Where(c => c.symbol == "MCOB")
                                       .First();
-
+            retVal.company1 = CompanyRead1;
       Company CompanyRead2 = dbContext.Companies
                                       .Include(c => c.Quotes)
                                       .Where(c => c.symbol == "MCOB")
                                       .First();
-
+            retVal.company2 = CompanyRead2;
       Quote Quote1 = dbContext.Companies
                               .Include(c => c.Quotes)
                               .Where(c => c.symbol == "MCOB")
                               .FirstOrDefault()
                               .Quotes
                               .FirstOrDefault();
-
-      return View();
+            retVal.quote1 = Quote1;
+      return View(retVal);
     }
 
   }

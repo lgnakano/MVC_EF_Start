@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ReturnValueLINQOperations;
+
+@{
   Layout = null;
 }
 
@@ -6,10 +8,167 @@
 
 <html>
 <head>
-  <meta name="viewport" content="width=device-width" />
-  <title>LINQOperations</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/css/LINQOperations.css">
+    <title>LINQOperations</title>
 </head>
 <body>
-  <h2>LINQ operations successful</h2>
+    <h2>LINQ operations successful</h2>
+    <h3>First Company:</h3>
+    <table>
+        <tr>
+            <th>Company name</th>
+            <th>Symbol</th>
+            <th>Date</th>
+            <th>Is Enabled</th>
+            <th>Type</th>
+            <th>IEX ID</th>
+            <th># of Quotes</th>
+        </tr>
+        <tr>
+            <td>@Model.company1.name</td>
+            <td>@Model.company1.symbol</td>
+            <td>@Model.company1.date</td>
+            <td>@Model.company1.isEnabled</td>
+            <td>@Model.company1.type</td>
+            <td>@Model.company1.iexId</td>
+            <td>@Model.company1.Quotes.Count</td>
+        </tr>
+        <tr></tr>
+    </table>
+    <p>Quote</p>
+    <table>
+        <tr>
+            <th>Quote Id</th>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+            <th>Volume</th>
+            <th>Unadj. Vol</th>
+            <th>Change</th>
+            <th>Change%</th>
+            <th>VWAP</th>
+            <th>Label</th>
+            <th>Change over Time</th>
+            <th>Symbol</th>
+        </tr>
+        @foreach (var item in Model.company1.Quotes)
+        {
+            <tr>
+                <td>@item.QuoteId</td>
+                <td>@item.date</td>
+                <td>@item.open</td>
+                <td>@item.high</td>
+                <td>@item.low</td>
+                <td>@item.close</td>
+                <td>@item.volume</td>
+                <td>@item.unadjustedVolume</td>
+                <td>@item.change</td>
+                <td>@item.changePercent</td>
+                <td>@item.vwap</td>
+                <td>@item.label</td>
+                <td>@item.changeOverTime</td>
+                <td>@item.symbol</td>
+            </tr>
+        }
+    </table>
+
+
+    <h3>Second Company:</h3>
+    <table>
+        <tr>
+            <th>Company name</th>
+            <th>Symbol</th>
+            <th>Date</th>
+            <th>Is Enabled</th>
+            <th>Type</th>
+            <th>IEX ID</th>
+            <th># of Quotes</th>
+        </tr>
+        <tr>
+            <td>@Model.company2.name</td>
+            <td>@Model.company2.symbol</td>
+            <td>@Model.company2.date</td>
+            <td>@Model.company2.isEnabled</td>
+            <td>@Model.company2.type</td>
+            <td>@Model.company2.iexId</td>
+            <td>@Model.company2.Quotes.Count</td>
+        </tr>
+    </table>
+    <p>Quote</p>
+    <table>
+        <tr>
+            <th>Quote Id</th>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+            <th>Volume</th>
+            <th>Unadj. Vol</th>
+            <th>Change</th>
+            <th>Change%</th>
+            <th>VWAP</th>
+            <th>Label</th>
+            <th>Change over Time</th>
+            <th>Symbol</th>
+        </tr>
+        @foreach (var item in Model.company2.Quotes)
+        {
+            <tr>
+                <td>@item.QuoteId</td>
+                <td>@item.date</td>
+                <td>@item.open</td>
+                <td>@item.high</td>
+                <td>@item.low</td>
+                <td>@item.close</td>
+                <td>@item.volume</td>
+                <td>@item.unadjustedVolume</td>
+                <td>@item.change</td>
+                <td>@item.changePercent</td>
+                <td>@item.vwap</td>
+                <td>@item.label</td>
+                <td>@item.changeOverTime</td>
+                <td>@item.symbol</td>
+            </tr>
+        }
+    </table>
+    <p>Quote</p>
+    <table>
+        <tr>
+            <th>Quote Id</th>
+            <th>Date</th>
+            <th>Open</th>
+            <th>High</th>
+            <th>Low</th>
+            <th>Close</th>
+            <th>Volume</th>
+            <th>Unadj. Vol</th>
+            <th>Change</th>
+            <th>Change%</th>
+            <th>VWAP</th>
+            <th>Label</th>
+            <th>Change over Time</th>
+            <th>Symbol</th>
+        </tr>
+        <tr>
+            <td>@Model.quote1.QuoteId</td>
+            <td>@Model.quote1.date</td>
+            <td>@Model.quote1.open</td>
+            <td>@Model.quote1.high</td>
+            <td>@Model.quote1.low</td>
+            <td>@Model.quote1.close</td>
+            <td>@Model.quote1.volume</td>
+            <td>@Model.quote1.unadjustedVolume</td>
+            <td>@Model.quote1.change</td>
+            <td>@Model.quote1.changePercent</td>
+            <td>@Model.quote1.vwap</td>
+            <td>@Model.quote1.label</td>
+            <td>@Model.quote1.changeOverTime</td>
+            <td>@Model.quote1.symbol</td>
+        </tr>
+    </table>
 </body>
 </html>
